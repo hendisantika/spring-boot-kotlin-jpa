@@ -1,6 +1,7 @@
 package id.my.hendisantika.kotlinjpa
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 /**
@@ -18,4 +19,10 @@ class CoinRestController {
 
     @Autowired
     lateinit var coinRepository: CoinRepository
+
+    @GetMapping("/")
+    fun getCoins(): List<Coin> {
+        return coinRepository.findAll()
+    }
+
 }
