@@ -46,4 +46,8 @@ class CoinRestController {
         return coinRepository.findAll(PageRequest.of(0, count)).content
     }
 
+    @GetMapping("/getLastNCoins")
+    fun getLastCoins(count: Int): List<Coin> {
+        return coinRepository.findAllByOrderByStartDateDesc(PageRequest.of(0, count))
+    }
 }
