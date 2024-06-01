@@ -28,6 +28,7 @@ class CoinDataLoader : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
         for (i in 1..10) {
             val c = Coin()
+            c.coinId = UUID.randomUUID()
             c.name = "coin $i"
             c.startDate = Instant.now().minus(i.toLong(), ChronoUnit.DAYS)
             c.description = "Description"

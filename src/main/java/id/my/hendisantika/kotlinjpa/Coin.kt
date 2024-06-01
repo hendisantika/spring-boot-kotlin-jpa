@@ -17,10 +17,11 @@ import java.util.*
  * To change this template use File | Settings | File Templates.
  */
 @Entity
+@Table(name = "t_coin")
 class Coin {
     @Id
     @GeneratedValue
-    var id: UUID? = null
+    var coinId: UUID? = null
 
     @Column(nullable = false, unique = true)
     var name: String = ""
@@ -29,10 +30,10 @@ class Coin {
     var description: String = ""
 
     @CreatedDate
-    var created = Instant.now()
+    var createdAt = Instant.now()
 
     @LastModifiedDate
-    var updated = Instant.now()
+    var updatedAt = Instant.now()
 
     @Column(nullable = false)
     var startDate: Instant? = null
