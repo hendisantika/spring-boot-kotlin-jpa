@@ -25,4 +25,8 @@ class CoinRestController {
         return coinRepository.findAll()
     }
 
+    @GetMapping("/coinsSortedByNameDesc")
+    fun getCoinsSortedByName(): List<Coin> {
+        return coinRepository.findAllByOrderByNameDesc()
+    }
 }
