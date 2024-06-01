@@ -1,6 +1,7 @@
 package id.my.hendisantika.kotlinjpa
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -39,4 +40,10 @@ class CoinRestController {
     fun getCoinsByMultipleSortParameters(): List<Coin> {
         return coinRepository.findAllByOrderByDescriptionDescNameAsc()
     }
+
+    @GetMapping("/getFirstNCoins")
+    fun getFirstCoins(count: Int): List<Coin> {
+        return coinRepository.findAll(PageRequest.of(0, count)).content
+    }
+
 }
