@@ -21,7 +21,7 @@ import java.util.*
 class Coin {
     @Id
     @GeneratedValue
-    var coinId: UUID? = null
+    var id: UUID? = null
 
     @Column(nullable = false, unique = true)
     var name: String = ""
@@ -38,7 +38,8 @@ class Coin {
     @Column(nullable = false)
     var startDate: Instant? = null
 
-    @OneToMany(cascade = [CascadeType.ALL])
+    //    @OneToMany(cascade = [CascadeType.ALL])
+    @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
     @JoinColumn(name = "coin_id")
     var priceList: MutableList<Price> = mutableListOf()
 }

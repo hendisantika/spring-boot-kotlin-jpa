@@ -21,7 +21,7 @@ class Price {
 
     @Id
     @GeneratedValue
-    var priceId: UUID? = null
+    var id: UUID? = null
 
     @Column(nullable = false)
     var value: BigDecimal = BigDecimal.ZERO
