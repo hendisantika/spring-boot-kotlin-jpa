@@ -2,8 +2,11 @@ package id.my.hendisantika.kotlinjpa
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.PageRequest
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import java.sql.DriverManager.println
+import java.util.*
 
 /**
  * Created by IntelliJ IDEA.
@@ -49,5 +52,11 @@ class CoinRestController {
     @GetMapping("/getLastNCoins")
     fun getLastCoins(count: Int): List<Coin> {
         return coinRepository.findAllByOrderByStartDateDesc(PageRequest.of(0, count))
+    }
+
+    @DeleteMapping("/delete")
+    fun deleteCoin(id: String) {
+        println("id $id")
+        coinRepository.deleteById(UUID.fromString(id))
     }
 }
