@@ -32,7 +32,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
+    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:2.1.21")
     implementation(kotlin("stdlib-jdk8"))
 }
 
